@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="sm:max-w-3xl sm:mx-auto mt-10 px-2 sm:px-6 pb-20">
+<main class="sm:max-w-3xl sm:mx-auto px-2 sm:px-6">
     
     @include('layouts.alert')
     
-    <div class="w-full mt-10 p-6 bg-white sm:border-1 sm:rounded-sm sm:shadow-md">
+    <div class="w-full p-6 bg-white sm:border-1 sm:rounded-sm sm:shadow-md">
         <div class="flex items-center justify-between gap-2">
             <div class="flex items-center gap-6">
                 <a href="{{ route('questionnaire.create') }}" class="flex items-center justify-center w-9 h-9 bg-gray-200 rounded-full inline-block text-xl hover:opacity-80 transition-all">
@@ -54,8 +54,16 @@
             </div>
             
             <div class="flex justify-between items-center gap-4 font-bold mt-6">
-                <div class="text-sm">
-                    回答者： {{ $question->responses->count() }}名
+                <div class="flex items-center flex-wrap gap-x-6 gap-y-2">
+                    <div class="text-sm">
+                        回答人数： {{ $question->responses->count() }} 人
+                    </div>
+                    
+                    @if ($question->responses->count())
+                        <a href="{{ route('questionnaire.question.chart', [$questionnaire, $question]) }}" class="text-sm text-blue-500 hover:underline">
+                            グラフを表示
+                        </a>
+                    @endif
                 </div>
                 
                 <form action="{{ route('questionnaire.question.delete', [$questionnaire, $question]) }}" method="POST">
@@ -69,6 +77,5 @@
             </div> 
         </div>
     @endforeach
-    
 </main>
 @endsection

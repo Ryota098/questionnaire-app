@@ -31,6 +31,7 @@ class QuestionnaireController extends Controller
             'purpose' => 'required',
         ]);
         
+        // ログイン中のユーザーにquestionnaire(子要素)を紐付け登録
         $questionnaire = auth()->user()->questionnaires()->create($data);
         
         return redirect()->back()->with('status', '新規アンケートを作成しました！');
@@ -39,8 +40,6 @@ class QuestionnaireController extends Controller
     
     public function show(Questionnaire $questionnaire)
     {
-        // $questionnaire->load('questions.answers.responses');
-   
         return view('admin.questionnaire.show', compact('questionnaire'));
     }
     

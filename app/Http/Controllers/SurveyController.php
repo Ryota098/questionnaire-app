@@ -16,8 +16,7 @@ class SurveyController extends Controller
     
     public function survey(Questionnaire $questionnaire)
     {
-        // アンケート＋質問＋回答 
-        $questionnaire->load('questions.answers');
+        // $questionnaire->load('questions.answers');
         
         return view('admin.questionnaire.survey', compact('questionnaire'));
     }
@@ -31,10 +30,11 @@ class SurveyController extends Controller
             'responses.*.answer_id' => 'required',
             'responses.*.question_id' => 'required',
         ]);
-        // questionnaire(アンケート)にsurveys(子要素)を紐付け
+        
+        // questionnaire(アンケート)にsurveys(子要素)を紐付け登録
         $survey = $questionnaire->surveys()->create($data['survey']);
         
-        // さらにsurvey(アンケート調査)にresponses(子要素)を紐付け
+        // さらにsurvey(アンケート調査)にresponses(子要素)を紐付け登録
         $survey->responses()->createMany($data['responses']);
         
         return redirect()->route('dashboard')->with('status', 'アンケート回答にご協力して頂きありがとうございます！');

@@ -18,12 +18,12 @@
     <!-- Font Awesome  -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
-<body class="bg-gray-100 text-gray-900 h-screen antialiased leading-none font-sans">
+<body class="bg-gray-100 text-gray-900 min-h-screen antialiased leading-none font-sans">
     <div id="app">
         <header class="bg-white shadow-sm py-4">
             <div class="container mx-auto flex justify-between items-center px-6">
                 <div>
-                    <a href="{{ url('/') }}" class="text-xl font-bold no-underline">
+                    <a href="{{ route('dashboard') }}" class="text-xl font-bold no-underline">
                         Questionnaire
                     </a>
                 </div>
@@ -54,7 +54,9 @@
             </div>
         </header>
 
-        @yield('content')
+        <div class="pt-10 pb-20">
+            @yield('content')
+        </div>
     </div>
     
 </body>

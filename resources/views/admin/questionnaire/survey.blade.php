@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="sm:max-w-3xl sm:mx-auto mt-10 px-2 sm:px-6 pb-20">
+<main class="sm:max-w-3xl sm:mx-auto px-2 sm:px-6">
     
     @include('layouts.alert')
     
-    <div class="w-full mt-10 p-6 bg-white sm:border-1 sm:rounded-sm sm:shadow-md">
+    <div class="w-full p-6 bg-white sm:border-1 sm:rounded-sm sm:shadow-md">
         <div class="">
             <div class="flex items-center gap-6">
                 <button type="button" onClick="history.back()" class="flex items-center justify-center w-9 h-9 bg-gray-200 rounded-full inline-block text-xl hover:opacity-80 transition-all">

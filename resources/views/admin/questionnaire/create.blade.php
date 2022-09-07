@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="sm:max-w-3xl sm:mx-auto mt-10 px-2 sm:px-6 pb-20">
+<main class="sm:max-w-3xl sm:mx-auto px-2 sm:px-6">
     <div class="w-full">
 
         @include('layouts.alert')

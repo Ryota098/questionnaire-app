@@ -6,7 +6,7 @@
         
         @include('layouts.alert')
 
-         <section class="p-6 flex flex-col break-words bg-white sm:border-1 sm:rounded-sm sm:shadow-md">
+         <section class="p-6 flex flex-col break-words bg-white sm:rounded-sm sm:shadow-md">
 
             <h1 class="text-xl font-bold">アンケート一覧</h1>
             

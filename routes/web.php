@@ -33,6 +33,7 @@ Route::prefix('admin')->middleware('can:admin-higher')->group(function () {
     
     Route::get('questionnaire/{questionnaire}/question/create', [QuestionController::class, 'create'])->name('questionnaire.question.create');
     Route::post('questionnaire/{questionnaire}/question/store', [QuestionController::class, 'store'])->name('questionnaire.question.store');
+    Route::get('questionnaire/{questionnaire:title}/{question}chart', [QuestionController::class, 'chart'])->name('questionnaire.question.chart');
     Route::delete('questionnaire/{questionnaire}/question/{question}', [QuestionController::class, 'destroy'])->name('questionnaire.question.delete');
 });
 
