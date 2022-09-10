@@ -2,7 +2,7 @@
 
 ## Download
 
-##### git clone
+### git clone
 
 `git clone https://github.com/Ryota098/questionnaire_app.git`  
 
@@ -13,7 +13,7 @@
 `npm install`  
 `npm run dev`  
 
-##### .env setting
+#### .envの設定
 
 `cp .env.example .env`  
 
@@ -24,7 +24,7 @@ DB_DATABASE=****
 DB_USERNAME=****  
 DB_PASSWORD=****  
 
-##### サーバー起動後
+#### サーバー起動後
 
 `php artisan migrate:fresh --seed`  
 `php artisan key:generate`  
