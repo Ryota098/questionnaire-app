@@ -20,9 +20,9 @@
 DB_CONNECTION=mysql  
 DB_PORT=3306  
 DB_HOST=localhost  
-DB_DATABASE=****  
-DB_USERNAME=****  
-DB_PASSWORD=****  
+DB_DATABASE=c9  
+DB_USERNAME=root  
+DB_PASSWORD=root  
 
 #### サーバー起動後
 
