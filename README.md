@@ -4,7 +4,7 @@
 
 git clone
 
-git clone https://github.com/Ryota098/questionnaire_app.git
+- git clone https://github.com/Ryota098/questionnaire_app.git
 
 ## Install
 
