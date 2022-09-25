@@ -15,11 +15,6 @@
                 <h1 class="text-xl font-bold">{{ $questionnaire->title }}</h1>
             </div>
         </div>
-            
-        <div class="mt-6 font-bold relative">
-            <span class="absolute top-0 left-0 w-2 h-full bg-red-600"></span>
-            <span class="ml-4">{{ $questionnaire->purpose }}</span>
-        </div>
     </div>
     
     <form action="{{ route('survey.store', $questionnaire) }}" method="POST">

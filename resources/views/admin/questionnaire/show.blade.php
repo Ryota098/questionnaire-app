@@ -16,15 +16,10 @@
             </div>
             
             <div>
-                <a href="{{ route('questionnaire.question.create', $questionnaire) }}" class="inline-block py-1 px-3 whitespace-nowrap bg-blue-500 text-white font-bold text-sm rounded-full hover:opacity-80 transition-all">
+                <a href="{{ route('questionnaire.question.create', $questionnaire) }}" class="inline-block py-1 px-3 whitespace-nowrap bg-blue-500 text-white font-bold text-sm rounded-sm hover:opacity-80 transition-all">
                     ＋ 質問
                 </a>
             </div>
-        </div>
-            
-        <div class="mt-6 font-bold relative">
-            <span class="absolute top-0 left-0 w-2 h-full bg-red-600"></span>
-            <span class="ml-4">{{ $questionnaire->purpose }}</span>
         </div>
     </div>
     
@@ -70,7 +65,7 @@
                     @csrf
                     @method('DELETE')
                     
-                    <button onclick="return confirm('削除してもよろしいですか？')" class="px-8 py-2 rounded-sm bg-red-600 text-white hover:opacity-80 transition-all">
+                    <button onclick="return confirm('削除しますか？')" class="px-8 py-2 rounded-sm bg-red-600 text-white hover:opacity-80 transition-all">
                         削除
                     </button>
                 </form>

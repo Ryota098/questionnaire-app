@@ -15,8 +15,12 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     
-    <!-- Font Awesome  -->
+    <!-- Font Awesome -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    
+     <!--  chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 </head>
 <body class="bg-gray-100 text-gray-900 min-h-screen antialiased leading-none font-sans">
     <div id="app">
@@ -35,11 +39,19 @@
                         @endif
                     @else
                         @if (auth()->user()->role <= 5)
+                            <a href="{{ route('dashboard') }}" class="no-underline hover:underline text-sm">
+                                アンケート一覧
+                            </a>
                             <a href="{{ route('questionnaire.create') }}" class="no-underline hover:underline text-sm">
-                                アンケート管理
+                                管理ページ
                             </a>
                         @else 
-                            <span class="">{{ Auth::user()->name }}</span>
+                            <a href="{{ route('dashboard') }}" class="no-underline hover:underline text-sm">
+                                アンケート一覧
+                            </a>
+                            <a href="{{ route('users.mypage') }}" class="no-underline hover:underline text-sm">
+                                マイページ
+                            </a>
                         @endif
 
                         <a href="{{ route('logout') }}"

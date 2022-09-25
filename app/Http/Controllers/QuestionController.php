@@ -18,7 +18,7 @@ class QuestionController extends Controller
     }
     
     
-     public function create(Questionnaire $questionnaire)
+    public function create(Questionnaire $questionnaire)
     {
         return view('admin.questionnaire.question.create', compact('questionnaire'));
     }

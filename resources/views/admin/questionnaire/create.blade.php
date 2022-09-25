@@ -21,24 +21,11 @@
                 
                 <div class="flex flex-col gap-2 font-bold my-6">
                     <label for="title" class="text-sm">タイトル</label>
-                    <input type="text" name="title" placeholder="例）従業員満足度アンケート" value="{{ old('title') }}"
+                    <input type="text" name="title" placeholder="例）進路相談直後アンケート" value="{{ old('title') }}"
                         class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('title') border-red-500 @enderror"
                     >
                     
                     @error('title')
-                        <p class="text-red-500 text-xs">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-                
-                <div class="flex flex-col gap-2 font-bold mb-6">
-                    <label for="purpose" class="text-sm">アンケートの意図</label>
-                    <input type="text" name="purpose" placeholder="例）従業員満足度の向上" value="{{ old('purpose') }}"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-sm focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 @error('purpose') border-red-500 @enderror"
-                    >
-                    
-                    @error('purpose')
                         <p class="text-red-500 text-xs">
                             {{ $message }}
                         </p>
@@ -88,7 +75,7 @@
                         </a>
                         
                         @if (!$questionnaire->questions->count())
-                            <span class="text-xs text-red-600">アンケートの質問を作成して下さい</span>
+                            <span class="text-xs text-red-600">アンケートはまだ未完成です</span>
                         @endif
                     </div>
                     
@@ -96,7 +83,7 @@
                         @csrf
                         @method('DELETE')
                         
-                        <button onclick="return confirm('削除してもよろしいですか？')" class="inline-block py-1 px-3 whitespace-nowrap bg-red-600 text-white font-bold text-sm rounded-sm hover:opacity-80 transition-all">
+                        <button onclick="return confirm('削除しすか？')" class="inline-block py-1 px-3 whitespace-nowrap bg-red-600 text-white font-bold text-sm rounded-sm hover:opacity-80 transition-all">
                             削除
                         </button>
                     </form>

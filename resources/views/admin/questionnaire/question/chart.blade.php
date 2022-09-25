@@ -11,11 +11,46 @@
         <h1 class="font-bold text-xl text-center">
             {{ $question->question }}
         </h1>
+        
+        <canvas id="myChart" class="mb-4"></canvas>
+        
+        <script>
+            const ctx = document.getElementById('myChart');
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+
+                    datasets: [{
+                        label: 'アンケート回答数 {{ $responser->count() }} 回',
+                        data: [
+                            <?php echo $data; ?>
+                        ],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        </script>
+        
         <div id="piechart" class="w-full h-3/5"></div>
     </div>
     
 </main>
 @endsection
+
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">

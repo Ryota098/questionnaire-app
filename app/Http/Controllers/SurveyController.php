@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Questionnaire;
+use App\Models\User;
+use App\Models\Survey;
 
 
 class SurveyController extends Controller
@@ -33,7 +35,7 @@ class SurveyController extends Controller
         
         // questionnaire(アンケート)にsurveys(子要素)を紐付け登録
         $survey = $questionnaire->surveys()->create($data['survey']);
-        
+
         // さらにsurvey(アンケート調査)にresponses(子要素)を紐付け登録
         $survey->responses()->createMany($data['responses']);
         

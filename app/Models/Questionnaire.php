@@ -11,26 +11,21 @@ class Questionnaire extends Model
 {
     use HasFactory;
     
-    protected $guarded = [];
-    
+    // protected $guarded = [];
+    protected $fillable = [
+        'uuid',
+        'title',
+    ];
     
     public function publicPath()
     {
-        return url('/survey/'.$this->title);
+        return url('/survey/'.$this->uuid);
     }
-    
-    
-    public function user() 
-    {
-        return $this->belongsTo(User::class);
-    }
-    
     
     public function questions() 
     {
         return $this->hasMany(Question::class);
     }
-    
     
     public function surveys() 
     {

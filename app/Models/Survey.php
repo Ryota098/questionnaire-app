@@ -12,11 +12,10 @@ class Survey extends Model
     protected $guarded = [];
     
     
-     public function questionnaire() 
+    public function questionnaire() 
     {
         return $this->belongsTo(Questionnaire::class);
     }
-    
     
     public function responses() 
     {

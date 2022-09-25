@@ -30,9 +30,15 @@ class UserSeeder extends Seeder
                 'role' => 5
             ],
             [
-                'name' => 'user',
+                'name' => 'user01',
                 'email' => 'user@gmail.com',
                 'password' => Hash::make('pass2222'),
+                'role' => 9
+            ],
+            [
+                'name' => 'user02',
+                'email' => 'user2@gmail.com',
+                'password' => Hash::make('pass3333'),
                 'role' => 9
             ],
         ]);

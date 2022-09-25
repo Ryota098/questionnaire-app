@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use App\Models\Questionnaire;
 use App\Models\Answer;
 
@@ -26,13 +27,14 @@ class QuestionnaireController extends Controller
     
     public function store(Request $request)
     {
-        $data = $this->validate($request, [
-            'title' => 'required|unique:questionnaires,title',
-            'purpose' => 'required',
+        $this->validate($request, [
+            'title' => 'required|unique:questionnaires,title'
         ]);
         
-        // ログイン中のユーザーにquestionnaire(子要素)を紐付け登録
-        $questionnaire = auth()->user()->questionnaires()->create($data);
+        Questionnaire::create([
+            'uuid'=>(string) Str::uuid(),
+            'title' => $request->title
+        ]);
         
         return redirect()->back()->with('status', '新規アンケートを作成しました！');
     }
@@ -40,6 +42,11 @@ class QuestionnaireController extends Controller
     
     public function show(Questionnaire $questionnaire)
     {
+        // dd($questionnaire->load('questions.answers.responses'));
+        // dd($questionnaire->load('surveys.responses'));
+        if (!$questionnaire->questions->count()) {
+            return view('admin.questionnaire.question.create', compact('questionnaire'));
+        }
         return view('admin.questionnaire.show', compact('questionnaire'));
     }
     
